@@ -13,7 +13,7 @@ namespace ConsoleUI
             {
                 Console.WriteLine(car.CarId);
             }
-
+                
             BrandManager brandManager = new BrandManager(new InMemoryBrandDal());  
             foreach (var brand in brandManager.GetAll())
             {
