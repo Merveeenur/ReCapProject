@@ -43,10 +43,10 @@ namespace DataAccess.Concrete.InMemory
             return _cars.Where(c =>c.ColorId==ColorId).ToList();
         }
 
-        public List<Car> GetById()
-        {
-            return _cars;
-        }
+        //public List<Car> GetById()
+        //{
+        //    return _cars;
+        //}
 
         public void Update(Car car)
         {
@@ -54,6 +54,8 @@ namespace DataAccess.Concrete.InMemory
             carToUpdate.DailyPrice = car.DailyPrice;
             carToUpdate.ColorId = car.ColorId;
             carToUpdate.BrandId = car.BrandId;
+            carToUpdate.Description = car.Description;
+            carToUpdate.ModelYear = car.ModelYear;
 
            
 
