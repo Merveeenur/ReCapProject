@@ -19,6 +19,12 @@ namespace ConsoleUI
             {
                 Console.WriteLine(brand.BrandName);
             }
+
+            ColorManager colorManager = new ColorManager(new InMemoryColorDal());
+            foreach (var color in colorManager.GetAll())
+            {
+                Console.WriteLine(color.ColorName);
+            }
         }
     }
 }

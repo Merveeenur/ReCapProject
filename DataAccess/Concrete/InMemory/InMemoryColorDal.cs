@@ -7,10 +7,10 @@ using System.Text;
 
 namespace DataAccess.Concrete.InMemory
 {
-    class IMemoryColorDal : IColorDal
+   public class InMemoryColorDal : IColorDal
     {
         List<Color> _colors;
-        public IMemoryColorDal()
+        public InMemoryColorDal()
         {
             _colors = new List<Color> {
             new Color{ColorId =1 ,ColorName="Grey "},
