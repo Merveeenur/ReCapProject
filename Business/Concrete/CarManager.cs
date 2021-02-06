@@ -21,5 +21,20 @@ namespace Business.Concrete
             //KODLAR
             return _carDal.GetAll();
         }
+
+        public List<Car> GetByDailyPrice()
+        {
+            return _carDal.GetAll(c => c.DailyPrice>=0);
+        }
+
+        public List<Car> GetCarByBrandId(int id)
+        {
+            return _carDal.GetAll(c=>c.BrandId==id);
+        }
+
+        public List<Car> GetCarByColorId(int id)
+        {
+            return _carDal.GetAll(c =>c.ColorId == id);
+        }
     }
 }
