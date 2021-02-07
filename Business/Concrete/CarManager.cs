@@ -18,13 +18,18 @@ namespace Business.Concrete
 
         public List<Car> GetAll()
         {
-            //KODLAR
+            
             return _carDal.GetAll();
         }
 
         public List<Car> GetByDailyPrice()
         {
             return _carDal.GetAll(c => c.DailyPrice>=0);
+        }
+
+        public Car GetById(int carId)
+        {
+            return _carDal.Get(c => c.CarId == carId);
         }
 
         public List<Car> GetCarByBrandId(int id)
