@@ -1,4 +1,6 @@
 ﻿using Business.Abstract;
+using Business.Constanst;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -17,13 +19,33 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> GetAll()
+        public IResult Add(Car car)
         {
-            
-            return _carDal.GetAll();
+            if (car.CarName.Length < 2)
+            {
+                return new ErrorResult(Messages.CarNameInvalid);
+            }
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
         }
 
-        public List<Car> GetByDailyPrice()
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car); 
+            return new Result(true, "araba silindi");
+
+        }
+
+        public IDataResult<List<Car>> GetAll()
+        {
+            if (DateTime.Now.Hour==17)
+            {
+                return new ErrorResult();
+            }
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),true,"arabalar listelendi");
+        }
+
+        public IDataResult<List<Car>> GetByDailyPrice()
         {
             return _carDal.GetAll(c => c.DailyPrice>=0);
         }
@@ -33,19 +55,25 @@ namespace Business.Concrete
             return _carDal.Get(c => c.CarId == carId);
         }
 
-        public List<Car> GetCarByBrandId(int id)
+        public IDataResult<List<Car>> GetCarByBrandId(int id)
         {
             return _carDal.GetAll(c=>c.BrandId==id);
         }
 
-        public List<Car> GetCarByColorId(int id)
+        public IDataResult<List<Car>> GetCarByColorId(int id)
         {
             return _carDal.GetAll(c =>c.ColorId == id);
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
             return _carDal.GetCarDetails();
+        }
+
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new Result(true, "araba güncellendi");
         }
     }
 }
