@@ -11,7 +11,7 @@ namespace Business.Constanst
         public static string BrandAdded = "Marka eklendi";
         public static string ColorAdded = "Renk eklendi";
         public static string CarNameInvalid = "Araba ismi geçersiz";
-        public static List<Car> MaintenanceTime;
-        public static string CarListed;
+        public static string MaintenanceTime="Sistem bakımda";
+        public static string CarListed= "Arabalar listelendi";
     }
 }
