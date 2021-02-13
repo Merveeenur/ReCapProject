@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -10,6 +11,7 @@ namespace Business.Constanst
         public static string BrandAdded = "Marka eklendi";
         public static string ColorAdded = "Renk eklendi";
         public static string CarNameInvalid = "Araba ismi geçersiz";
-
+        public static List<Car> MaintenanceTime;
+        public static string CarListed;
     }
 }

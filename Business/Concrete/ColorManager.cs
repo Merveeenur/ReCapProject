@@ -38,14 +38,14 @@ namespace Business.Concrete
             return new Result(true, "renk güncellendi");
         }
 
-        IDataResult<List<Color>> IColorService.GetAll()
+        public IDataResult<List<Color>> GetAll()
         {
-            return _colorDal.GetAll();
+            return new SuccessDataResult<List<Color>> (_colorDal.GetAll());
         }
 
-        IDataResult<Color> IColorService.GetById(int colorId)
+        public IDataResult<Color> GetById(int colorId)
         {
-            return _colorDal.Get(c => c.ColorId == colorId);
+            return new SuccessDataResult<Color>(_colorDal.Get(c => c.ColorId == colorId));
         }
     }
 }
