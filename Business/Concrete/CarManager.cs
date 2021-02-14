@@ -32,7 +32,7 @@ namespace Business.Concrete
         public IResult Delete(Car car)
         {
             _carDal.Delete(car); 
-            return new Result(true, "araba silindi");
+            return new SuccessResult(Messages.CarDeleted);
 
         }
 
