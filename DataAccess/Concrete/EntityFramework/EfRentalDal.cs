@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
+using System.Linq;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -16,14 +17,12 @@ namespace DataAccess.Concrete.EntityFramework
             {
                 var result = from u in context.Users
                              join c in context.Customers on u.Id equals c.UserId
-                             join r in context.Rentals on u.CustomerId equals r.CustomerId
-                             select new CarDetailDto
+                             join r in context.Rentals on u.Id equals r.CustomerId
+                             select new RentalDetailDto
                              {
-
-                                 CarName = c.CarName,
-                                 ColorName = cl.ColorName,
-                                 BrandName = b.BrandName,
-                                 DailyPrice = c.DailyPrice
+                                 FirstName=u.FirstName ,
+                                 LastName =u.LastName,
+                                 
                              };
                 return result.ToList();
             }

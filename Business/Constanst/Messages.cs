@@ -33,6 +33,7 @@ namespace Business.Constanst
         public static string CarListed= "Arabalar listelendi";
         public static string UserListed = "Kullanıcılar listelendi";
         public static string CustomerListed = "Müşteriler listelendi";
+        public static string RentalListed = "Satışlar listelendi";
 
         public static string MaintenanceTime = "Sistem bakımda";
     }

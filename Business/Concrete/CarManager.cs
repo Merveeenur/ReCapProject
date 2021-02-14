@@ -73,7 +73,7 @@ namespace Business.Concrete
         public IResult Update(Car car)
         {
             _carDal.Update(car);
-            return new Result(true, "araba güncellendi");
+            return new SuccessResult(Messages.CarUpdated);
         }
     }
 }

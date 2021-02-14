@@ -1,4 +1,5 @@
 ﻿using Business.Concrete;
+using DataAccess.Concrete.EntityFramework;
 using DataAccess.Concrete.EntityFrameworks;
 using DataAccess.Concrete.InMemory;
 using Entities.Concrete;
@@ -22,10 +23,16 @@ namespace ConsoleUI
 
             //BrandTest();
 
-            CarTest5();
+            //CarTest5();
 
             //CarAddTest();
 
+            RentalManager rentalManager = new RentalManager(new EfRentalDal());
+            rentalManager.Add(new Rental { CarId = 5, CustomerId = 3, Id = 2 });
+            foreach (var rental in rentalManager.GetRentalDetails().Message)
+            {
+                Console.WriteLine(rental);
+            }
         }
 
         private static void CarAddTest()
