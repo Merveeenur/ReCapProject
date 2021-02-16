@@ -29,7 +29,7 @@ namespace ConsoleUI
 
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
             rentalManager.Add(new Rental { CarId = 5, CustomerId = 3, Id = 2 });
-            foreach (var rental in rentalManager.GetRentalDetails().Message)
+            foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
                 Console.WriteLine(rental);
             }

@@ -16,8 +16,8 @@ namespace DataAccess.Concrete.EntityFramework
             using (ReCapDBContext context = new ReCapDBContext())
             {
                 var result = from u in context.Users
-                             join c in context.Customers on u.Id equals c.UserId
-                             join r in context.Rentals on u.Id equals r.CustomerId
+                             join cu in context.Customers on u.UserId equals cu.UserId
+                             join r in context.Rentals on u.UserId equals r.CustomerId
                              select new RentalDetailDto
                              {
                                  FirstName=u.FirstName ,
