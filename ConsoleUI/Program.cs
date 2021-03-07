@@ -28,10 +28,10 @@ namespace ConsoleUI
             //CarAddTest();
 
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentalId = 2 });
+            rentalManager.Update(new Rental { CarId = 5, CustomerId = 2 , RentalId = 3 , UserId=1 });
             foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
-                Console.WriteLine(rental);
+                Console.WriteLine(rental.CustomerId + "==>"+rental.CarId + "==>" +rental.RentalId + "==>"+rental.FirstName + "==>"+rental.LastName );
             }
         }
 
