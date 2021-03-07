@@ -36,7 +36,7 @@ namespace Business.Concrete
 
         public IDataResult<List<User>> GetAll()
         {
-            if (DateTime.Now.Hour == 17)
+            if (DateTime.Now.Hour == 19)
             {
                 return new ErrorDataResult<List<User>>(Messages.MaintenanceTime);
             }

@@ -28,7 +28,7 @@ namespace ConsoleUI
             //CarAddTest();
 
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            rentalManager.Delete(new Rental { CarId = 4, CustomerId = 3, RentalId = 2 });
+            rentalManager.Add(new Rental { CarId = 2, CustomerId = 1, RentalId = 2 });
             foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
                 Console.WriteLine(rental);
