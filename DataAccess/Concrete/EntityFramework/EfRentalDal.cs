@@ -15,14 +15,20 @@ namespace DataAccess.Concrete.EntityFramework
         {
             using (ReCapDBContext context = new ReCapDBContext())
             {
-                var result = from u in context.Users
-                             join cu in context.Customers on u.UserId equals cu.UserId
-                             join r in context.Rentals on u.UserId equals r.CustomerId
+                var result = from r in context.Rentals
+                             join cu in context.Customers on r.CustomerId equals cu.CustomerId
+                             join c in context.Cars on r.CarId equals c.CarId
+                             join u in context.Users on cu.UserId equals u.UserId
                              select new RentalDetailDto
                              {
-                                 FirstName=u.FirstName ,
+                                 RentalId = r.RentalId,
+                                 CarId = c.CarId,
+                                 CustomerId = cu.CustomerId,
+                                 UserId = u.UserId,
+                                 FirstName =u.FirstName ,
                                  LastName =u.LastName,
                                  
+
                              };
                 return result.ToList();
             }
