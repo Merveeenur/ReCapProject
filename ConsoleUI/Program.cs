@@ -27,11 +27,16 @@ namespace ConsoleUI
 
             //CarAddTest();
 
+           //rentaltest(); 
+        }
+
+        private static void rentaltest()
+        {
             RentalManager rentalManager = new RentalManager(new EfRentalDal());
-            rentalManager.Update(new Rental { CarId = 5, CustomerId = 2 , RentalId = 3 , UserId=1 });
+            rentalManager.Update(new Rental { CarId = 5, CustomerId = 2, RentalId = 3, UserId = 1 });
             foreach (var rental in rentalManager.GetRentalDetails().Data)
             {
-                Console.WriteLine(rental.CustomerId + "==>"+rental.CarId + "==>" +rental.RentalId + "==>"+rental.FirstName + "==>"+rental.LastName );
+                Console.WriteLine(rental.CustomerId + "==>" + rental.CarId + "==>" + rental.RentalId + "==>" + rental.FirstName + "==>" + rental.LastName);
             }
         }
 
